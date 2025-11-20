@@ -1,18 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-<h1>hamzaaaaaaaaaaaaaaaaaaa</h1>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>HQ — Hamza Qandeel</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <body>
+        <div class="page">
+            <aside class="margins">
+                <div class="langs">AR | EN</div>
+                <div class="socials">
+                    <a href="#" aria-label="github">GH</a>
+                    <a href="#" aria-label="linkedin">LI</a>
+                    <a href="#" aria-label="twitter">TW</a>
+                </div>
+                <a class="email" href="mailto:hamza@example.com">hamza@example.com</a>
+            </aside>
 
-<h1>1</h1>
-<h1>2</h1>
-<h1>3</h1>
+            <header class="site-header">
+                <div class="logo" id="logo">
+                    <svg viewBox="0 0 120 40" width="120" height="40" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="g" x1="0" x2="1">
+                                <stop offset="0%" stop-color="#6C7BFF" />
+                                <stop offset="100%" stop-color="#00C2FF" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="0" y="0" width="120" height="40" rx="8" fill="url(#g)" opacity="0.12"></rect>
+                        <text x="12" y="26" font-family="Inter, system-ui, sans-serif" font-size="18" fill="url(#g)" font-weight="700">HQ</text>
+                        <text x="48" y="26" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#111">Hamza Qandeel</text>
+                    </svg>
+                </div>
 
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#certs">Certificates</a>
+                    <a href="#blog">Blog</a>
+                </nav>
 
-</body>
+                <div class="header-actions">
+                    <div class="search">
+                        <input type="search" placeholder="Search" aria-label="Search" />
+                    </div>
+                    <div class="chat" id="chat">Live Chat</div>
+                </div>
+            </header>
+
+            <main>
+                <section id="home" class="hero">
+                    <div class="hero-inner glass">
+                        <div class="hero-left">
+                            <h1 class="reveal">Hi, I'm Hamza Qandeel</h1>
+                            <p class="lead reveal">Data Scientist & AI Engineer — building ML systems, models and delightful data products.</p>
+
+                            <div class="hero-buttons reveal">
+                                <a class="btn">Portfolio</a>
+                                <a class="btn outline">CV</a>
+                                <a class="btn">My Certificates</a>
+                                <a class="btn">Contact Me</a>
+                                <a class="btn">Projects Timeline</a>
+                            </div>
+                        </div>
+
+                        <div class="hero-right reveal">
+                                <div class="photo-frame">
+                                <img src="assets/img/profile.svg" alt="Hamza Qandeel" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="down-arrow" aria-hidden="true">⌄</div>
+                </section>
+
+                <section id="portfolio" class="section glass-section">
+                    <h2 class="section-title reveal">Selected Projects</h2>
+                    <div class="cards">
+                        <article class="card reveal">
+                            <div class="icon">AI</div>
+                            <h3>Customer Sentiment Analyzer</h3>
+                            <p>Hybrid recommender and sentiment analysis using NLP & collaborative filtering.</p>
+                        </article>
+                        <article class="card reveal">
+                            <div class="icon">CV</div>
+                            <h3>Medical Image Classifier</h3>
+                            <p>Deep learning pipeline for medical imaging classification.</p>
+                        </article>
+                        <article class="card reveal">
+                            <div class="icon">DS</div>
+                            <h3>Interactive Dashboards</h3>
+                            <p>Visual data products built with Dash and Streamlit.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="certs" class="section">
+                    <h2 class="section-title reveal">Courses & Certificates</h2>
+                    <ul class="certs reveal">
+                        <li>Machine Learning — Coursera</li>
+                        <li>Deep Learning Specialization — deeplearning.ai</li>
+                        <li>Data Analysis with Python</li>
+                    </ul>
+                </section>
+
+                <section id="contact" class="section glass-section">
+                    <h2 class="section-title reveal">Contact Me</h2>
+                    <p class="reveal">Interested in collaborating? Send an email to <a href="mailto:hamza@example.com">hamza@example.com</a></p>
+                </section>
+            </main>
+
+            <div class="chat-box" id="chatBox" aria-hidden="true">
+                <div class="chat-header">HQ Bot</div>
+                <div class="chat-body"><div class="bot">Hello — how can I help?</div></div>
+                <div class="chat-input"><input placeholder="Type a message..." /><button>Send</button></div>
+            </div>
+        </div>
+
+        <script src="assets/js/app.js"></script>
+    </body>
 </html>

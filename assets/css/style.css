@@ -1,0 +1,96 @@
+/* Modern HQ site styles */
+:root{
+  --bg1:#6C7BFF;
+  --bg2:#00C2FF;
+  --glass: rgba(255,255,255,0.55);
+  --muted: #666;
+  --card-bg: rgba(255,255,255,0.6);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(135deg,var(--bg1),var(--bg2));
+  background-attachment: fixed;
+  color:#0f172a;
+}
+.page{display:flex;min-height:100vh}
+.margins{
+  width:72px;display:flex;flex-direction:column;align-items:center;gap:18px;padding:18px 8px;color:white;font-weight:600
+}
+.margins .langs{writing-mode:vertical-rl;transform:rotate(180deg);opacity:0.9}
+.margins .socials{display:flex;flex-direction:column;gap:10px}
+.margins a{color:white;text-decoration:none;background:rgba(0,0,0,0.12);padding:6px;border-radius:8px;font-size:12px}
+.margins .email{writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;color:#fff;text-decoration:none}
+
+.site-header{position:fixed;left:72px;right:16px;top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{height:44px;width:auto}
+.nav{display:flex;gap:14px}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:6px 10px;border-radius:8px;font-weight:600;font-size:14px}
+.header-actions{display:flex;align-items:center;gap:12px}
+.search input{padding:8px 10px;border-radius:999px;border:none;outline:none;width:140px}
+.chat{background:rgba(255,255,255,0.12);color:white;padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer}
+
+main{flex:1;padding:120px 120px 80px 120px}
+.hero{min-height:78vh;display:flex;align-items:center;justify-content:center;position:relative;padding:30px}
+.hero-inner{display:flex;gap:36px;align-items:center;width:100%;max-width:1200px}
+.hero-left{flex:1}
+.hero-right{width:320px;display:flex;justify-content:center}
+.hero h1{font-size:40px;color:white;margin:0 0 12px;letter-spacing:0.4px}
+.lead{color:rgba(255,255,255,0.9);margin:0 0 18px}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{background:rgba(255,255,255,0.95);padding:10px 16px;border-radius:12px;color:#0a0f1a;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s}
+.btn:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.12)}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:white}
+
+.photo-frame{width:240px;height:240px;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.12)}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+
+.down-arrow{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:32px;color:rgba(255,255,255,0.9);animation:bob 2s infinite}
+@keyframes bob{0%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}100%{transform:translateX(-50%) translateY(0)}}
+
+.section{padding:60px 0}
+.glass-section{background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));margin:24px 0;padding:28px;border-radius:16px;backdrop-filter: blur(8px);box-shadow:0 8px 40px rgba(2,6,23,0.18);border:1px solid rgba(255,255,255,0.06)}
+.section-title{color:white;margin:0 0 18px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card-bg);padding:18px;border-radius:12px;min-height:140px;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 24px rgba(2,6,23,0.12)}
+.card .icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:white;display:flex;align-items:center;justify-content:center;font-weight:800}
+.certs{color:white}
+
+.chat-box{position:fixed;right:24px;bottom:24px;width:320px;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(2,6,23,0.3);background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9));transform:translateY(24px);opacity:0;pointer-events:none}
+.chat-box.open{transform:translateY(0);opacity:1;pointer-events:auto}
+.chat-header{background:linear-gradient(90deg,var(--bg1),var(--bg2));color:white;padding:12px;font-weight:700}
+.chat-body{padding:12px;height:160px;overflow:auto}
+.chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(0,0,0,0.05)}
+.chat-input input{flex:1;padding:8px;border-radius:8px;border:1px solid #ddd}
+.chat-input button{padding:8px 12px;border-radius:8px;background:var(--bg1);color:white;border:none}
+
+/* reveal animations */
+.reveal{opacity:0;transform:translateY(12px) scale(.99);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:1000px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  main{padding:100px 28px}
+}
+@media(max-width:700px){
+  .margins{display:none}
+  .site-header{left:16px;right:16px}
+  .hero-inner{flex-direction:column-reverse;align-items:center}
+  .hero-right{width:200px}
+  .photo-frame{width:180px;height:180px}
+  .cards{grid-template-columns:1fr}
+}
+
+/* subtle cursor effect */
+.cursor-dot{position:fixed;pointer-events:none;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.9);transform:translate(-50%,-50%);mix-blend-mode:screen;transition:transform .12s linear}
+
+/* shapes */
+.shape-circle{position:absolute;border-radius:50%;filter:blur(32px);opacity:0.28}
+.shape-1{width:220px;height:220px;background:rgba(108,123,255,0.5);left:6%;top:10%}
+.shape-2{width:160px;height:160px;background:rgba(0,194,255,0.46);right:8%;top:20%}
+
+/* small utilities */
+a{color:inherit}
