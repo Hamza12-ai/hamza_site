@@ -321,6 +321,114 @@
             margin: 0 auto 50px;
         }
 
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: var(--bg-light);
+        }
+
+        .contact-item i {
+            width: 30px;
+            color: var(--primary-1);
+        }
+
+        .cv-details {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .cv-section {
+            margin-bottom: 40px;
+        }
+
+        .cv-section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-1);
+            border-bottom: 2px solid var(--primary-1);
+            padding-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill-item {
+            background: var(--bg-light);
+            padding: 10px 15px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .education-item, .cert-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary-1);
+        }
+
+        .item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            color: var(--primary-1);
+            font-weight: 500;
+        }
+
         /* Cards */
         .cards-grid {
             display: grid;
@@ -510,6 +618,11 @@
                 width: 300px;
                 right: 10px;
             }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
     </style>
 </head>
@@ -528,7 +641,7 @@
             <nav class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#certificates" class="nav-link">Certificates</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
             <div class="header-controls">
@@ -553,8 +666,8 @@
             <h1 class="hero-title">Data Scientist & AI Engineer</h1>
             <p class="hero-subtitle">Transforming data into intelligent solutions through machine learning and artificial intelligence</p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#about" class="btn btn-primary">View My CV</a>
+                <a href="#projects" class="btn btn-secondary">See Projects</a>
             </div>
             <div class="scroll-indicator">
                 <i class="fas fa-chevron-down"></i>
@@ -564,27 +677,129 @@
         <section id="about" class="section">
             <h2 class="section-title">About Me</h2>
             <p class="section-subtitle">AI & Data Science graduate with hands-on experience in data analysis, machine learning, and data visualization</p>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-graduation-cap"></i>
+            
+            <div class="about-content">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="card-title">Education</h3>
-                    <p class="card-text">Bachelor's Degree in AI & Data Science from Al al-Bayt University (AABU)</p>
+                    <h3>Hamza Abd Al Khaleq Qandeel</h3>
+                    <p class="hero-subtitle">Data Scientist & AI Engineer</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0785546942</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hamzaqandeel12@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Al al-Bayt University (AABU)</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>hamzeh Qandeel</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-code"></i>
+
+                <div class="cv-details">
+                    <!-- Profile Summary -->
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">Profile Summary</h3>
+                        <p>AI & Data Science graduate from Al al-Bayt University with hands-on experience in data analysis, machine learning, and data visualization. Skilled in Python, Excel, and Power BI, with strong analytical thinking and a track record of delivering high-quality AI-driven projects.</p>
                     </div>
-                    <h3 class="card-title">Skills</h3>
-                    <p class="card-text">Python, Pandas, NumPy, SQL, Excel, Power BI, Machine Learning, Data Analysis</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-project-diagram"></i>
+
+                    <!-- Skills -->
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">Technical Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">Pandas</div>
+                            <div class="skill-item">NumPy</div>
+                            <div class="skill-item">SQL</div>
+                            <div class="skill-item">Excel</div>
+                            <div class="skill-item">Power BI</div>
+                            <div class="skill-item">Data Analysis</div>
+                            <div class="skill-item">Machine Learning</div>
+                            <div class="skill-item">Sentiment Analysis</div>
+                            <div class="skill-item">Recommendation Systems</div>
+                            <div class="skill-item">Data Visualization</div>
+                            <div class="skill-item">Statistics</div>
+                            <div class="skill-item">Data Cleaning</div>
+                        </div>
                     </div>
-                    <h3 class="card-title">Projects</h3>
-                    <p class="card-text">Movie Recommendation System, Sentiment Analysis, Interactive Dashboards</p>
+
+                    <!-- Languages -->
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">Languages</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">Arabic (Native)</div>
+                            <div class="skill-item">English (B2)</div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">Education</h3>
+                        <div class="education-item">
+                            <div class="item-title">Bachelor's Degree in AI & Data Science</div>
+                            <div class="item-subtitle">Al al-Bayt University (AABU)</div>
+                            <div class="item-date">Graduated 2025</div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">Certifications</h3>
+                        <div class="cert-item">
+                            <div class="item-title">IBM Data Analyst Professional Certificate</div>
+                            <div class="item-subtitle">IBM</div>
+                            <div class="item-date">2023</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="item-title">Excel Basics for Data Analysis</div>
+                            <div class="item-subtitle">IBM - Coursera</div>
+                            <div class="item-date">2025</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="item-title">Python Machine Learning</div>
+                            <div class="item-subtitle">AI (The Hope International Co.)</div>
+                            <div class="item-date">2023</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="item-title">Introduction to Data Analytics</div>
+                            <div class="item-subtitle">IBM - Coursera</div>
+                            <div class="item-date">2023</div>
+                        </div>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">Projects</h3>
+                        <div class="cert-item">
+                            <div class="item-title">Movie Recommendation System</div>
+                            <p>Graduation Project - Grade A. Advanced movie recommendation system using machine learning algorithms.</p>
+                        </div>
+                        <div class="cert-item">
+                            <div class="item-title">Sentiment Analysis</div>
+                            <p>Built sentiment analysis model to classify audience reviews as positive, negative, or neutral.</p>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="cv-section">
+                        <h3 class="cv-section-title">Additional Information</h3>
+                        <ul style="padding-left: 20px; color: var(--text-light);">
+                            <li style="margin-bottom: 10px;">Strong problem-solving mindset</li>
+                            <li style="margin-bottom: 10px;">Open to relocation and remote opportunities</li>
+                            <li style="margin-bottom: 10px;">Passionate about continuous learning</li>
+                            <li>Committed to delivering high-quality work</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -617,8 +832,9 @@
             </div>
         </section>
 
-        <footer>
+        <footer id="contact">
             <p>&copy; 2025 Hamza Qandeel. All rights reserved.</p>
+            <p style="margin-top: 10px;">Contact: hamzaqandeel12@gmail.com | 0785546942</p>
         </footer>
     </div>
 
@@ -736,7 +952,7 @@
                     const responses = [
                         "That's interesting! Tell me more about your project.",
                         "I can help you with data analysis and machine learning concepts.",
-                        "Have you checked out the projects section?",
+                        "Have you checked out my projects section?",
                         "I'm here to assist with any questions about data science!",
                         "Let me know if you need help with Python or ML algorithms."
                     ];
