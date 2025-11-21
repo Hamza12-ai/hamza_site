@@ -1,0 +1,22 @@
+[
+	{
+		"type": "cv",
+		"name": "Hamzah_Abd_Al_Khaleq_Qandeel_CV.png",
+		"path": "/assets/files/Hamzah_Abd_Al_Khaleq_Qandeel_CV.png"
+	},
+	{
+		"type": "cert",
+		"name": "IBM_Data_Analyst_Certificate.pdf",
+		"path": "/assets/files/IBM_Data_Analyst_Certificate.pdf"
+	},
+	{
+		"type": "cert",
+		"name": "Excel_Basics_for_Data_Analysis.pdf",
+		"path": "/assets/files/Excel_Basics_for_Data_Analysis.pdf"
+	},
+	{
+		"type": "cert",
+		"name": "Python_Machine_Learning_Certificate.pdf",
+		"path": "/assets/files/Python_Machine_Learning_Certificate.pdf"
+	}
+]

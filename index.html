@@ -1,122 +1,772 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>HQ — Hamza Qandeel</title>
-        <link rel="stylesheet" href="assets/css/style.css" />
-    </head>
-    <body>
-        <div class="page">
-            <aside class="margins">
-                <div class="langs">AR | EN</div>
-                <div class="socials">
-                    <a href="#" aria-label="github">GH</a>
-                    <a href="#" aria-label="linkedin">LI</a>
-                    <a href="#" aria-label="twitter">TW</a>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Qandeel - Data Scientist & AI Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Orange Theme Colors */
+            --primary-1: #FF6B35;
+            --primary-2: #FF8C42;
+            --primary-3: #FFA726;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --bg-card: #ffffff;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+            
+            /* Animation Properties */
+            --animation-duration: 0.6s;
+            --animation-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Dark Theme Colors */
+        [data-theme="dark"] {
+            --primary-1: #FF8C42;
+            --primary-2: #FF6B35;
+            --primary-3: #FFA726;
+            --text-dark: #f1f5f9;
+            --text-light: #94a3b8;
+            --bg-light: #0f172a;
+            --bg-white: #1e293b;
+            --bg-card: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-size: 16px;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        /* Splash Screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .splash-content {
+            text-align: center;
+        }
+
+        .name-animation {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: nameReveal 2.5s ease-in-out;
+        }
+
+        @keyframes nameReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeInContent 1s ease 3s forwards;
+        }
+
+        @keyframes fadeInContent {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-1);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 14px;
+            width: 200px;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-1);
+            width: 250px;
+        }
+
+        .theme-switcher {
+            display: flex;
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-btn {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .theme-btn.active {
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary-1);
+            color: var(--primary-1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-1);
+            color: white;
+        }
+
+        .scroll-indicator {
+            margin-top: 40px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* AI Chat Bot */
+        .chat-bot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .chat-bot:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: var(--bg-white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            border: 1px solid var(--border-color);
+        }
+
+        .chat-header {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            color: white;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            font-weight: 600;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+
+        .message-bot {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+        }
+
+        .message-user {
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            color: white;
+            border-bottom-right-radius: 5px;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+        }
+
+        .chat-input-field {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background: var(--bg-white);
+            color: var(--text-dark);
+        }
+
+        .chat-send {
+            background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .search-input {
+                width: 150px;
+            }
+            
+            .chat-window {
+                width: 300px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <div class="name-animation">Hamza Qandeel</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <div class="logo">HQ</div>
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-controls">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search...">
                 </div>
-                <a class="email" href="mailto:hamza@example.com">hamza@example.com</a>
-            </aside>
-
-            <header class="site-header">
-                <div class="logo" id="logo">
-                    <svg viewBox="0 0 120 40" width="120" height="40" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="g" x1="0" x2="1">
-                                <stop offset="0%" stop-color="#6C7BFF" />
-                                <stop offset="100%" stop-color="#00C2FF" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="0" y="0" width="120" height="40" rx="8" fill="url(#g)" opacity="0.12"></rect>
-                        <text x="12" y="26" font-family="Inter, system-ui, sans-serif" font-size="18" fill="url(#g)" font-weight="700">HQ</text>
-                        <text x="48" y="26" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#111">Hamza Qandeel</text>
-                    </svg>
+                <div class="theme-switcher">
+                    <button class="theme-btn active" data-theme="light">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="theme-btn" data-theme="dark">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="theme-btn" data-theme="auto">
+                        <i class="fas fa-adjust"></i>
+                    </button>
                 </div>
+            </div>
+        </header>
 
-                <nav class="nav">
-                    <a href="#home">Home</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#certs">Certificates</a>
-                    <a href="#blog">Blog</a>
-                </nav>
+        <section class="hero">
+            <h1 class="hero-title">Data Scientist & AI Engineer</h1>
+            <p class="hero-subtitle">Transforming data into intelligent solutions through machine learning and artificial intelligence</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
 
-                <div class="header-actions">
-                    <div class="search">
-                        <input type="search" placeholder="Search" aria-label="Search" />
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">AI & Data Science graduate with hands-on experience in data analysis, machine learning, and data visualization</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div class="chat" id="chat">Live Chat</div>
+                    <h3 class="card-title">Education</h3>
+                    <p class="card-text">Bachelor's Degree in AI & Data Science from Al al-Bayt University (AABU)</p>
                 </div>
-            </header>
-
-            <main>
-                <section id="home" class="hero">
-                    <div class="hero-inner glass">
-                        <div class="hero-left">
-                            <h1 class="reveal">Hi, I'm Hamza Qandeel</h1>
-                            <p class="lead reveal">Data Scientist & AI Engineer — building ML systems, models and delightful data products.</p>
-
-                            <div class="hero-buttons reveal">
-                                <a class="btn">Portfolio</a>
-                                <a class="btn outline">CV</a>
-                                <a class="btn">My Certificates</a>
-                                <a class="btn">Contact Me</a>
-                                <a class="btn">Projects Timeline</a>
-                            </div>
-                        </div>
-
-                        <div class="hero-right reveal">
-                                <div class="photo-frame">
-                                <img src="assets/img/profile.svg" alt="Hamza Qandeel" />
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-
-                    <div class="down-arrow" aria-hidden="true">⌄</div>
-                </section>
-
-                <section id="portfolio" class="section glass-section">
-                    <h2 class="section-title reveal">Selected Projects</h2>
-                    <div class="cards">
-                        <article class="card reveal">
-                            <div class="icon">AI</div>
-                            <h3>Customer Sentiment Analyzer</h3>
-                            <p>Hybrid recommender and sentiment analysis using NLP & collaborative filtering.</p>
-                        </article>
-                        <article class="card reveal">
-                            <div class="icon">CV</div>
-                            <h3>Medical Image Classifier</h3>
-                            <p>Deep learning pipeline for medical imaging classification.</p>
-                        </article>
-                        <article class="card reveal">
-                            <div class="icon">DS</div>
-                            <h3>Interactive Dashboards</h3>
-                            <p>Visual data products built with Dash and Streamlit.</p>
-                        </article>
+                    <h3 class="card-title">Skills</h3>
+                    <p class="card-text">Python, Pandas, NumPy, SQL, Excel, Power BI, Machine Learning, Data Analysis</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-project-diagram"></i>
                     </div>
-                </section>
+                    <h3 class="card-title">Projects</h3>
+                    <p class="card-text">Movie Recommendation System, Sentiment Analysis, Interactive Dashboards</p>
+                </div>
+            </div>
+        </section>
 
-                <section id="certs" class="section">
-                    <h2 class="section-title reveal">Courses & Certificates</h2>
-                    <ul class="certs reveal">
-                        <li>Machine Learning — Coursera</li>
-                        <li>Deep Learning Specialization — deeplearning.ai</li>
-                        <li>Data Analysis with Python</li>
-                    </ul>
-                </section>
+        <section id="projects" class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A selection of my recent work in data science and AI</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="card-title">Movie Recommendation System</h3>
+                    <p class="card-text">Advanced recommendation engine using collaborative filtering and machine learning algorithms.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="card-title">Sentiment Analysis</h3>
+                    <p class="card-text">NLP model to classify audience reviews as positive, negative, or neutral with high accuracy.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="card-title">Interactive Dashboards</h3>
+                    <p class="card-text">Data visualization products built with Power BI and Excel for insightful analytics.</p>
+                </div>
+            </div>
+        </section>
 
-                <section id="contact" class="section glass-section">
-                    <h2 class="section-title reveal">Contact Me</h2>
-                    <p class="reveal">Interested in collaborating? Send an email to <a href="mailto:hamza@example.com">hamza@example.com</a></p>
-                </section>
-            </main>
+        <footer>
+            <p>&copy; 2025 Hamza Qandeel. All rights reserved.</p>
+        </footer>
+    </div>
 
-            <div class="chat-box" id="chatBox" aria-hidden="true">
-                <div class="chat-header">HQ Bot</div>
-                <div class="chat-body"><div class="bot">Hello — how can I help?</div></div>
-                <div class="chat-input"><input placeholder="Type a message..." /><button>Send</button></div>
+    <!-- AI Chat Bot -->
+    <div class="chat-bot" id="chatBot">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-title">AI Assistant</div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message message-bot">
+                Hello! I'm your AI assistant. How can I help you today?
             </div>
         </div>
+        <div class="chat-input">
+            <input type="text" class="chat-input-field" id="chatInput" placeholder="Type your message...">
+            <button class="chat-send" id="chatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
 
-        <script src="assets/js/app.js"></script>
-    </body>
+    <script>
+        // Splash Screen
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('splashScreen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('splashScreen').style.display = 'none';
+                }, 500);
+            }, 3000);
+        });
+
+        // Theme Switching
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        
+        themeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const theme = this.getAttribute('data-theme');
+                
+                // Update active theme button
+                themeButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Apply theme
+                applyTheme(theme);
+            });
+        });
+
+        function applyTheme(theme) {
+            let actualTheme = theme;
+            
+            // Handle auto theme
+            if (theme === 'auto') {
+                const hour = new Date().getHours();
+                actualTheme = (hour >= 18 || hour < 6) ? 'dark' : 'light';
+            }
+            
+            // Apply theme
+            document.documentElement.setAttribute('data-theme', actualTheme);
+            
+            // Store theme preference
+            localStorage.setItem('preferred-theme', theme);
+        }
+
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('preferred-theme') || 'light';
+        applyTheme(savedTheme);
+        
+        // Update active button
+        themeButtons.forEach(btn => {
+            if (btn.getAttribute('data-theme') === savedTheme) {
+                btn.classList.add('active');
+            }
+        });
+
+        // Chat Bot
+        const chatBot = document.getElementById('chatBot');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatClose = document.getElementById('chatClose');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        chatBot.addEventListener('click', function() {
+            chatWindow.style.display = 'flex';
+        });
+
+        chatClose.addEventListener('click', function() {
+            chatWindow.style.display = 'none';
+        });
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                // Simulate AI response
+                setTimeout(function() {
+                    const responses = [
+                        "That's interesting! Tell me more about your project.",
+                        "I can help you with data analysis and machine learning concepts.",
+                        "Have you checked out the projects section?",
+                        "I'm here to assist with any questions about data science!",
+                        "Let me know if you need help with Python or ML algorithms."
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addMessage(randomResponse, 'bot');
+                }, 1000);
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${sender}`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
 </html>
