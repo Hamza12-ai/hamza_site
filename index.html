@@ -429,6 +429,125 @@
             font-weight: 500;
         }
 
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .certificate-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 250px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .certificate-card:hover .certificate-image img {
+            transform: scale(1.05);
+        }
+
+        .certificate-placeholder {
+            color: var(--text-light);
+            font-size: 3rem;
+        }
+
+        .certificate-info {
+            text-align: left;
+        }
+
+        .certificate-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-1);
+        }
+
+        .certificate-issuer {
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .certificate-date {
+            color: var(--primary-1);
+            font-weight: 500;
+        }
+
+        /* Modal for certificate images */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--bg-white);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
         /* Cards */
         .cards-grid {
             display: grid;
@@ -623,6 +742,10 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -634,14 +757,24 @@
         </div>
     </div>
 
+    <!-- Certificate Modal -->
+    <div class="modal" id="certificateModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" src="" alt="Certificate">
+        </div>
+    </div>
+
     <!-- Main Content -->
     <div class="container">
         <header>
             <div class="logo">HQ</div>
             <nav class="nav-links">
                 <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#certificates" class="nav-link">Certificates</a>
+                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
             <div class="header-controls">
@@ -667,7 +800,7 @@
             <p class="hero-subtitle">Transforming data into intelligent solutions through machine learning and artificial intelligence</p>
             <div class="hero-buttons">
                 <a href="#about" class="btn btn-primary">View My CV</a>
-                <a href="#projects" class="btn btn-secondary">See Projects</a>
+                <a href="#certificates" class="btn btn-secondary">See Certificates</a>
             </div>
             <div class="scroll-indicator">
                 <i class="fas fa-chevron-down"></i>
@@ -804,6 +937,73 @@
             </div>
         </section>
 
+        <section id="certificates" class="section">
+            <h2 class="section-title">My Certificates</h2>
+            <p class="section-subtitle">Professional certifications and achievements in data science and AI</p>
+            
+            <div class="certificates-grid">
+                <!-- IBM Data Analyst Certificate -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal('certificates/ibm-data-analyst.jpg')">
+                        <img src="certificates/ibm-data-analyst.jpg" alt="IBM Data Analyst Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h3 class="certificate-title">IBM Data Analyst Professional Certificate</h3>
+                        <p class="certificate-issuer">IBM</p>
+                        <p class="certificate-date">Completed: 2023</p>
+                    </div>
+                </div>
+
+                <!-- Excel Basics Certificate -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal('certificates/excel-basics.jpg')">
+                        <img src="certificates/excel-basics.jpg" alt="Excel Basics for Data Analysis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h3 class="certificate-title">Excel Basics for Data Analysis</h3>
+                        <p class="certificate-issuer">IBM - Coursera</p>
+                        <p class="certificate-date">Completed: 2025</p>
+                    </div>
+                </div>
+
+                <!-- Python ML Certificate -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal('certificates/python-ml.jpg')">
+                        <img src="certificates/python-ml.jpg" alt="Python Machine Learning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fab fa-python"></i>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h3 class="certificate-title">Python Machine Learning</h3>
+                        <p class="certificate-issuer">AI (The Hope International Co.)</p>
+                        <p class="certificate-date">Completed: 2023</p>
+                    </div>
+                </div>
+
+                <!-- Data Analytics Certificate -->
+                <div class="certificate-card">
+                    <div class="certificate-image" onclick="openModal('certificates/data-analytics.jpg')">
+                        <img src="certificates/data-analytics.jpg" alt="Introduction to Data Analytics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h3 class="certificate-title">Introduction to Data Analytics</h3>
+                        <p class="certificate-issuer">IBM - Coursera</p>
+                        <p class="certificate-date">Completed: 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="projects" class="section">
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">A selection of my recent work in data science and AI</p>
@@ -917,6 +1117,26 @@
             }
         });
 
+        // Certificate Modal
+        function openModal(imageSrc) {
+            const modal = document.getElementById('certificateModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = imageSrc;
+            modal.style.display = 'flex';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', function() {
+            document.getElementById('certificateModal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside the image
+        document.getElementById('certificateModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
         // Chat Bot
         const chatBot = document.getElementById('chatBot');
         const chatWindow = document.getElementById('chatWindow');
@@ -952,7 +1172,7 @@
                     const responses = [
                         "That's interesting! Tell me more about your project.",
                         "I can help you with data analysis and machine learning concepts.",
-                        "Have you checked out my projects section?",
+                        "Have you checked out my certificates section?",
                         "I'm here to assist with any questions about data science!",
                         "Let me know if you need help with Python or ML algorithms."
                     ];
